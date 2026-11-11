@@ -1,13 +1,13 @@
-﻿id_cego;avaliador;correcao;relevancia;suporte;falha_critica;justificativa
-S01;;;;;;
-S02;;;;;;
-S03;;;;;;
-S04;;;;;;
-S05;;;;;;
-S06;;;;;;
-S07;;;;;;
-S08;;;;;;
-S09;;;;;;
-S10;;;;;;
-S11;;;;;;
-S12;;;;;;
+id_cego;avaliador;correcao;relevancia;suporte;falha_critica;justificativa
+S01;Gian;1;2;2;0;Cita o Art. 2º com 7,0 correto mas omite a frequência mínima de 75%
+S02;Gian;1;2;2;0;Informa o prazo da 8ª semana pelo portal mas omite que depois só por laudo de saúde
+S03;Gian;2;2;2;0;5 dias úteis na coordenação conforme Art. 5º sem omissões
+S04;Gian;2;2;2;0;7,0 e frequência de 75% conforme Art. 2º com citação cobrindo ambas
+S05;Gian;1;2;2;0;Cita 7,0 correto mas omite os 75% de frequência do Art. 2º
+S06;Gian;2;2;2;0;Abstenção correta sem inventar valor e orienta procurar a coordenação
+S07;Gian;2;1;2;0;Abstenção correta sem inventar valor mas recusa sem orientar a coordenação
+S08;Gian;2;2;2;0;7,0 e 75% de frequência conforme Art. 2º
+S09;Gian;2;2;2;0;5 dias úteis na coordenação conforme Art. 5º
+S10;Gian;2;2;2;0;3 livros e 7 dias corridos conforme DOC-BIBLIO
+S11;Gian;2;2;2;0;3 livros simultâneos e 7 dias corridos conforme DOC-BIBLIO
+S12;Gian;1;2;2;0;Informa o prazo da 8ª semana pelo portal mas omite a exceção por laudo de saúde
