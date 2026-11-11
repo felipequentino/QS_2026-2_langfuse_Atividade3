@@ -1,0 +1,140 @@
+{
+  "versao": "A",
+  "caso_id": "CT03",
+  "tipo": "funcional",
+  "pergunta": "Quantos livros posso pegar emprestado na biblioteca e por quanto tempo?",
+  "configuracao": {
+    "prompt_id": "P2A",
+    "prompt_sha256": "1264d163eeec8e9c1838c9f68ae568cf3c04703f07265184da275d3a9983d6d7",
+    "modo_contexto": "auto",
+    "guard": true,
+    "json_mode": true,
+    "somente_oficiais": true,
+    "reescrever_consulta": true,
+    "provedor": "groq",
+    "modelo": "openai/gpt-oss-120b",
+    "temperatura": 0.0,
+    "top_k": 4
+  },
+  "executado_em_utc": "2026-11-11T00:38:47.102218+00:00",
+  "commit": "68c68389143b6b909fcbc0de3626b1d92b120e6e",
+  "erro": null,
+  "rotulo": "av3-A-CT03",
+  "sessao": "av3-20261110-213840",
+  "trace_id": null,
+  "trace_url": null,
+  "consulta_busca": "Quantos livros posso pegar emprestado na biblioteca e por quanto tempo? limite de livros emprestados biblioteca, quantidade de volumes, prazo de empréstimo, duração do empréstimo, regras de locação",
+  "chamadas_llm": 2,
+  "somente_oficiais": true,
+  "reescrever_consulta": true,
+  "prompt_id": "P2A",
+  "prompt_versao": "1.0.0",
+  "modo_contexto": "auto",
+  "guard": true,
+  "json_mode": true,
+  "modelo": "openai/gpt-oss-120b",
+  "model_version": "openai/gpt-oss-120b",
+  "chunks": [
+    {
+      "chunk_id": "DOC-BIBLIO#1",
+      "doc_id": "DOC-BIBLIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 21.236,
+      "texto": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos."
+    },
+    {
+      "chunk_id": "DOC-BIBLIO#2",
+      "doc_id": "DOC-BIBLIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 13.429,
+      "texto": "O empréstimo pode ser renovado no máximo 2 (duas) vezes pelo portal da biblioteca, desde que o livro não esteja reservado por outro usuário."
+    },
+    {
+      "chunk_id": "DOC-BIBLIO#3",
+      "doc_id": "DOC-BIBLIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 11.71,
+      "texto": "O atraso na devolução gera multa de R$ 1,00 (um real) por dia e por livro, e o discente fica impedido de novos empréstimos até a quitação."
+    },
+    {
+      "chunk_id": "DOC-ESTAGIO#3",
+      "doc_id": "DOC-ESTAGIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/estagio",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 6.679,
+      "texto": "É obrigatória a contratação de seguro contra acidentes pessoais em favor do estagiário e a assinatura do Termo de Compromisso de Estágio entre discente, empresa e universidade antes do início das atividades."
+    }
+  ],
+  "chunks_quarentena": [],
+  "padroes_na_pergunta": [],
+  "saida_bruta": "{\"resposta\":\"Você pode pegar até 3 livros ao mesmo tempo, e o prazo de empréstimo é de 7 dias corridos.\",\"afirmacoes\":[{\"afirmacao\":\"Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos.\",\"doc_id\":\"DOC-BIBLIO\",\"url\":\"https://regulamentos.usn.exemplo.edu.br/biblioteca\",\"trecho\":\"Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos.\"}],\"confianca\":\"alta\",\"recusou\":false,\"motivo_recusa\":null}",
+  "saida_final": {
+    "resposta": "Você pode pegar até 3 livros ao mesmo tempo, e o prazo de empréstimo é de 7 dias corridos.",
+    "afirmacoes": [
+      {
+        "afirmacao": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos.",
+        "doc_id": "DOC-BIBLIO",
+        "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+        "trecho": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos."
+      }
+    ],
+    "confianca": "alta",
+    "recusou": false,
+    "motivo_recusa": null
+  },
+  "validacao": {
+    "json_valido": true,
+    "schema_valido": true,
+    "erros": [],
+    "avisos": [],
+    "afirmacoes": [
+      {
+        "afirmacao": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos.",
+        "doc_id": "DOC-BIBLIO",
+        "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+        "trecho": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos.",
+        "fonte_valida": true,
+        "veredito_auto": "sustentada",
+        "problemas": []
+      }
+    ],
+    "total_afirmacoes": 1,
+    "afirmacoes_fonte_valida": 1,
+    "afirmacoes_sustentadas": 1,
+    "urls_desconhecidas_na_resposta": [],
+    "objeto": {
+      "resposta": "Você pode pegar até 3 livros ao mesmo tempo, e o prazo de empréstimo é de 7 dias corridos.",
+      "afirmacoes": [
+        {
+          "afirmacao": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos.",
+          "doc_id": "DOC-BIBLIO",
+          "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+          "trecho": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos."
+        }
+      ],
+      "confianca": "alta",
+      "recusou": false,
+      "motivo_recusa": null
+    }
+  },
+  "saneamento": [],
+  "uso": {
+    "input": 1289,
+    "output": 445,
+    "reasoning": 287
+  },
+  "latencia_llm_s": 1.35,
+  "latencia_total_s": 2.416,
+  "tentativas": 1
+}

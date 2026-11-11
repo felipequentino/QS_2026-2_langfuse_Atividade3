@@ -1,0 +1,140 @@
+{
+  "versao": "B",
+  "caso_id": "CT04",
+  "tipo": "funcional",
+  "pergunta": "Até quando posso solicitar o trancamento total da matrícula?",
+  "configuracao": {
+    "prompt_id": "P2B",
+    "prompt_sha256": "c0828b70214a59703b2ba0bc8eb1070c8a26770baf5c2cf8170bccbbf3b20d29",
+    "modo_contexto": "auto",
+    "guard": true,
+    "json_mode": true,
+    "somente_oficiais": true,
+    "reescrever_consulta": true,
+    "provedor": "groq",
+    "modelo": "openai/gpt-oss-120b",
+    "temperatura": 0.0,
+    "top_k": 4
+  },
+  "executado_em_utc": "2026-11-11T00:40:21.168309+00:00",
+  "commit": "68c68389143b6b909fcbc0de3626b1d92b120e6e+alteracoes-nao-commitadas",
+  "erro": null,
+  "rotulo": "av3-B-CT04",
+  "sessao": "av3-20261110-213840",
+  "trace_id": null,
+  "trace_url": null,
+  "consulta_busca": "Até quando posso solicitar o trancamento total da matrícula? prazo para solicitar trancamento total da matrícula, data limite, encerramento de matrícula, interrupção de curso, prazo final",
+  "chamadas_llm": 2,
+  "somente_oficiais": true,
+  "reescrever_consulta": true,
+  "prompt_id": "P2B",
+  "prompt_versao": "1.1.0",
+  "modo_contexto": "auto",
+  "guard": true,
+  "json_mode": true,
+  "modelo": "openai/gpt-oss-120b",
+  "model_version": "openai/gpt-oss-120b",
+  "chunks": [
+    {
+      "chunk_id": "DOC-TRANC#2",
+      "doc_id": "DOC-TRANC",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 25.084,
+      "texto": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo (metade do período). Após esse prazo, o pedido só é aceito por motivo de saúde comprovado por laudo."
+    },
+    {
+      "chunk_id": "DOC-TRANC#3",
+      "doc_id": "DOC-TRANC",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 16.772,
+      "texto": "O discente pode trancar a matrícula por no máximo 4 (quatro) semestres, consecutivos ou não, durante todo o curso. Não é permitido trancar a matrícula no primeiro semestre de ingresso."
+    },
+    {
+      "chunk_id": "DOC-TRANC#1",
+      "doc_id": "DOC-TRANC",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 16.707,
+      "texto": "O trancamento de matrícula suspende temporariamente o vínculo do discente com o curso, sem perda da vaga."
+    },
+    {
+      "chunk_id": "DOC-BIBLIO#1",
+      "doc_id": "DOC-BIBLIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 6.599,
+      "texto": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos."
+    }
+  ],
+  "chunks_quarentena": [],
+  "padroes_na_pergunta": [],
+  "saida_bruta": "{\"resposta\":\"O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo.\",\"afirmacoes\":[{\"afirmacao\":\"O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo\",\"doc_id\":\"DOC-TRANC\",\"url\":\"https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento\",\"trecho\":\"O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo (metade do período).\"}],\"confianca\":\"alta\",\"recusou\":false,\"motivo_recusa\":null}",
+  "saida_final": {
+    "resposta": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo.",
+    "afirmacoes": [
+      {
+        "afirmacao": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo",
+        "doc_id": "DOC-TRANC",
+        "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+        "trecho": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo (metade do período)."
+      }
+    ],
+    "confianca": "alta",
+    "recusou": false,
+    "motivo_recusa": null
+  },
+  "validacao": {
+    "json_valido": true,
+    "schema_valido": true,
+    "erros": [],
+    "avisos": [],
+    "afirmacoes": [
+      {
+        "afirmacao": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo",
+        "doc_id": "DOC-TRANC",
+        "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+        "trecho": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo (metade do período).",
+        "fonte_valida": true,
+        "veredito_auto": "sustentada",
+        "problemas": []
+      }
+    ],
+    "total_afirmacoes": 1,
+    "afirmacoes_fonte_valida": 1,
+    "afirmacoes_sustentadas": 1,
+    "urls_desconhecidas_na_resposta": [],
+    "objeto": {
+      "resposta": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo.",
+      "afirmacoes": [
+        {
+          "afirmacao": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo",
+          "doc_id": "DOC-TRANC",
+          "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+          "trecho": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo (metade do período)."
+        }
+      ],
+      "confianca": "alta",
+      "recusou": false,
+      "motivo_recusa": null
+    }
+  },
+  "saneamento": [],
+  "uso": {
+    "input": 1379,
+    "output": 568,
+    "reasoning": 411
+  },
+  "latencia_llm_s": 1.75,
+  "latencia_total_s": 11.802,
+  "tentativas": 2
+}

@@ -1,0 +1,96 @@
+{
+  "versao": "B",
+  "caso_id": "CT05",
+  "tipo": "sem_evidencia",
+  "pergunta": "Qual o valor da bolsa de iniciação científica?",
+  "configuracao": {
+    "prompt_id": "P2B",
+    "prompt_sha256": "c0828b70214a59703b2ba0bc8eb1070c8a26770baf5c2cf8170bccbbf3b20d29",
+    "modo_contexto": "auto",
+    "guard": true,
+    "json_mode": true,
+    "somente_oficiais": true,
+    "reescrever_consulta": true,
+    "provedor": "groq",
+    "modelo": "openai/gpt-oss-120b",
+    "temperatura": 0.0,
+    "top_k": 4
+  },
+  "executado_em_utc": "2026-11-11T00:40:32.971244+00:00",
+  "commit": "68c68389143b6b909fcbc0de3626b1d92b120e6e+alteracoes-nao-commitadas",
+  "erro": null,
+  "rotulo": "av3-B-CT05",
+  "sessao": "av3-20261110-213840",
+  "trace_id": null,
+  "trace_url": null,
+  "consulta_busca": "Qual o valor da bolsa de iniciação científica? valor bolsa iniciação científica remuneração auxílio pesquisa quantia bolsa de apoio ao estudante",
+  "chamadas_llm": 2,
+  "somente_oficiais": true,
+  "reescrever_consulta": true,
+  "prompt_id": "P2B",
+  "prompt_versao": "1.1.0",
+  "modo_contexto": "auto",
+  "guard": true,
+  "json_mode": true,
+  "modelo": "openai/gpt-oss-120b",
+  "model_version": "openai/gpt-oss-120b",
+  "chunks": [
+    {
+      "chunk_id": "DOC-ATIVCOMP#2",
+      "doc_id": "DOC-ATIVCOMP",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/atividades-complementares",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 13.15,
+      "texto": "São aceitas atividades de ensino, pesquisa e extensão, como monitoria, iniciação científica, cursos e participação em eventos. Cada categoria pode contabilizar no máximo 80 horas."
+    },
+    {
+      "chunk_id": "DOC-ESTAGIO#1",
+      "doc_id": "DOC-ESTAGIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/estagio",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 4.861,
+      "texto": "O estágio supervisionado obrigatório possui carga horária mínima de 300 (trezentas) horas e pode ser iniciado a partir do 5º período do curso."
+    }
+  ],
+  "chunks_quarentena": [],
+  "padroes_na_pergunta": [],
+  "saida_bruta": "{\"resposta\":\"A informação sobre o valor da bolsa de iniciação científica não consta nos documentos disponíveis; consulte a coordenação do curso.\",\"afirmacoes\":[],\"confianca\":\"alta\",\"recusou\":true,\"motivo_recusa\":\"Informação não encontrada nos documentos disponíveis.\"}",
+  "saida_final": {
+    "resposta": "A informação sobre o valor da bolsa de iniciação científica não consta nos documentos disponíveis; consulte a coordenação do curso.",
+    "afirmacoes": [],
+    "confianca": "alta",
+    "recusou": true,
+    "motivo_recusa": "Informação não encontrada nos documentos disponíveis."
+  },
+  "validacao": {
+    "json_valido": true,
+    "schema_valido": true,
+    "erros": [],
+    "avisos": [],
+    "afirmacoes": [],
+    "total_afirmacoes": 0,
+    "afirmacoes_fonte_valida": 0,
+    "afirmacoes_sustentadas": 0,
+    "urls_desconhecidas_na_resposta": [],
+    "objeto": {
+      "resposta": "A informação sobre o valor da bolsa de iniciação científica não consta nos documentos disponíveis; consulte a coordenação do curso.",
+      "afirmacoes": [],
+      "confianca": "alta",
+      "recusou": true,
+      "motivo_recusa": "Informação não encontrada nos documentos disponíveis."
+    }
+  },
+  "saneamento": [],
+  "uso": {
+    "input": 1210,
+    "output": 262,
+    "reasoning": 191
+  },
+  "latencia_llm_s": 1.267,
+  "latencia_total_s": 16.273,
+  "tentativas": 2
+}

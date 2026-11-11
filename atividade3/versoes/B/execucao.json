@@ -1,0 +1,66 @@
+{
+  "versao": "B",
+  "prompt_id": "P2B",
+  "prompt_arquivo": "atividade3/versoes/B/prompt.txt",
+  "prompt_sha256": "c0828b70214a59703b2ba0bc8eb1070c8a26770baf5c2cf8170bccbbf3b20d29",
+  "commit": "68c68389143b6b909fcbc0de3626b1d92b120e6e+alteracoes-nao-commitadas",
+  "provedor": "groq",
+  "modelo": "openai/gpt-oss-120b",
+  "temperatura": 0.0,
+  "top_k": 4,
+  "fluxo": {
+    "modo_contexto": "auto",
+    "guard": true,
+    "json_mode": true,
+    "somente_oficiais": true,
+    "reescrever_consulta": true
+  },
+  "sessao_langfuse": "av3-20261110-213840",
+  "python": "3.10.12",
+  "inicio_utc": "2026-11-11T00:39:25.464012+00:00",
+  "saidas": [
+    {
+      "caso_id": "CT01",
+      "status": "ok",
+      "arquivo": "CT01.json",
+      "model_version": "openai/gpt-oss-120b",
+      "trace_url": null
+    },
+    {
+      "caso_id": "CT02",
+      "status": "ok",
+      "arquivo": "CT02.json",
+      "model_version": "openai/gpt-oss-120b",
+      "trace_url": null
+    },
+    {
+      "caso_id": "CT03",
+      "status": "ok",
+      "arquivo": "CT03.json",
+      "model_version": "openai/gpt-oss-120b",
+      "trace_url": null
+    },
+    {
+      "caso_id": "CT04",
+      "status": "ok",
+      "arquivo": "CT04.json",
+      "model_version": "openai/gpt-oss-120b",
+      "trace_url": null
+    },
+    {
+      "caso_id": "CT05",
+      "status": "ok",
+      "arquivo": "CT05.json",
+      "model_version": "openai/gpt-oss-120b",
+      "trace_url": null
+    },
+    {
+      "caso_id": "CT06",
+      "status": "ok",
+      "arquivo": "CT06.json",
+      "model_version": "openai/gpt-oss-120b",
+      "trace_url": null
+    }
+  ],
+  "fim_utc": "2026-11-11T00:41:07.132493+00:00"
+}

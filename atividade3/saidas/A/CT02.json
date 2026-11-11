@@ -1,0 +1,140 @@
+{
+  "versao": "A",
+  "caso_id": "CT02",
+  "tipo": "funcional",
+  "pergunta": "Qual o prazo para pedir revisão de nota?",
+  "configuracao": {
+    "prompt_id": "P2A",
+    "prompt_sha256": "1264d163eeec8e9c1838c9f68ae568cf3c04703f07265184da275d3a9983d6d7",
+    "modo_contexto": "auto",
+    "guard": true,
+    "json_mode": true,
+    "somente_oficiais": true,
+    "reescrever_consulta": true,
+    "provedor": "groq",
+    "modelo": "openai/gpt-oss-120b",
+    "temperatura": 0.0,
+    "top_k": 4
+  },
+  "executado_em_utc": "2026-11-11T00:38:44.598610+00:00",
+  "commit": "68c68389143b6b909fcbc0de3626b1d92b120e6e",
+  "erro": null,
+  "rotulo": "av3-A-CT02",
+  "sessao": "av3-20261110-213840",
+  "trace_id": null,
+  "trace_url": null,
+  "consulta_busca": "Qual o prazo para pedir revisão de nota? prazo para solicitar revisão de nota, recurso de avaliação, prazo de contestação de nota, prazo de recurso acadêmico",
+  "chamadas_llm": 2,
+  "somente_oficiais": true,
+  "reescrever_consulta": true,
+  "prompt_id": "P2A",
+  "prompt_versao": "1.0.0",
+  "modo_contexto": "auto",
+  "guard": true,
+  "json_mode": true,
+  "modelo": "openai/gpt-oss-120b",
+  "model_version": "openai/gpt-oss-120b",
+  "chunks": [
+    {
+      "chunk_id": "DOC-TRANC#2",
+      "doc_id": "DOC-TRANC",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/trancamento",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 12.108,
+      "texto": "O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo (metade do período). Após esse prazo, o pedido só é aceito por motivo de saúde comprovado por laudo."
+    },
+    {
+      "chunk_id": "DOC-AVA-2019#3",
+      "doc_id": "DOC-AVA-2019",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/avaliacao-2019",
+      "vigente": false,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 11.882,
+      "texto": "Art. 3º O pedido de revisão de nota deve ser feito em até 2 (dois) dias úteis após a divulgação do resultado."
+    },
+    {
+      "chunk_id": "DOC-AVA-2026#5",
+      "doc_id": "DOC-AVA-2026",
+      "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/avaliacao-2026",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 11.325,
+      "texto": "Art. 5º O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 (cinco) dias úteis após a divulgação do resultado. A revisão é feita por banca de dois docentes e o resultado é publicado em até 10 dias úteis."
+    },
+    {
+      "chunk_id": "DOC-BIBLIO#1",
+      "doc_id": "DOC-BIBLIO",
+      "url": "https://regulamentos.usn.exemplo.edu.br/biblioteca",
+      "vigente": true,
+      "classificacao": "sintetico",
+      "oficial": true,
+      "score": 10.429,
+      "texto": "Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos."
+    }
+  ],
+  "chunks_quarentena": [],
+  "padroes_na_pergunta": [],
+  "saida_bruta": "{\"resposta\":\"O prazo para solicitar a revisão de nota é de até 5 (cinco) dias úteis após a divulgação do resultado, devendo o pedido ser protocolado na coordenação do curso.\",\"afirmacoes\":[{\"afirmacao\":\"O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 dias úteis após a divulgação do resultado\",\"doc_id\":\"DOC-AVA-2026\",\"url\":\"https://regulamentos.usn.exemplo.edu.br/graduacao/avaliacao-2026\",\"trecho\":\"Art. 5º O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 (cinco) dias úteis após a divulgação do resultado. A revisão é feita por banca de dois docentes e o resultado é publicado em até 10 dias úteis.\"}],\"confianca\":\"alta\",\"recusou\":false,\"motivo_recusa\":null}",
+  "saida_final": {
+    "resposta": "O prazo para solicitar a revisão de nota é de até 5 (cinco) dias úteis após a divulgação do resultado, devendo o pedido ser protocolado na coordenação do curso.",
+    "afirmacoes": [
+      {
+        "afirmacao": "O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 dias úteis após a divulgação do resultado",
+        "doc_id": "DOC-AVA-2026",
+        "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/avaliacao-2026",
+        "trecho": "Art. 5º O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 (cinco) dias úteis após a divulgação do resultado. A revisão é feita por banca de dois docentes e o resultado é publicado em até 10 dias úteis."
+      }
+    ],
+    "confianca": "alta",
+    "recusou": false,
+    "motivo_recusa": null
+  },
+  "validacao": {
+    "json_valido": true,
+    "schema_valido": true,
+    "erros": [],
+    "avisos": [],
+    "afirmacoes": [
+      {
+        "afirmacao": "O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 dias úteis após a divulgação do resultado",
+        "doc_id": "DOC-AVA-2026",
+        "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/avaliacao-2026",
+        "trecho": "Art. 5º O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 (cinco) dias úteis após a divulgação do resultado. A revisão é feita por banca de dois docentes e o resultado é publicado em até 10 dias úteis.",
+        "fonte_valida": true,
+        "veredito_auto": "sustentada",
+        "problemas": []
+      }
+    ],
+    "total_afirmacoes": 1,
+    "afirmacoes_fonte_valida": 1,
+    "afirmacoes_sustentadas": 1,
+    "urls_desconhecidas_na_resposta": [],
+    "objeto": {
+      "resposta": "O prazo para solicitar a revisão de nota é de até 5 (cinco) dias úteis após a divulgação do resultado, devendo o pedido ser protocolado na coordenação do curso.",
+      "afirmacoes": [
+        {
+          "afirmacao": "O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 dias úteis após a divulgação do resultado",
+          "doc_id": "DOC-AVA-2026",
+          "url": "https://regulamentos.usn.exemplo.edu.br/graduacao/avaliacao-2026",
+          "trecho": "Art. 5º O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 (cinco) dias úteis após a divulgação do resultado. A revisão é feita por banca de dois docentes e o resultado é publicado em até 10 dias úteis."
+        }
+      ],
+      "confianca": "alta",
+      "recusou": false,
+      "motivo_recusa": null
+    }
+  },
+  "saneamento": [],
+  "uso": {
+    "input": 1347,
+    "output": 464,
+    "reasoning": 260
+  },
+  "latencia_llm_s": 1.413,
+  "latencia_total_s": 2.503,
+  "tentativas": 1
+}
