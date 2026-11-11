@@ -28,7 +28,8 @@ crítica: o que a resposta afirma está certo, só está incompleto.
 
 **O mesmo padrão em CT04/A (F1 0,706) e CT05/A (F1 0,833).** Em CT05/A a abstenção está correta, mas a resposta não
 orienta o discente a procurar a coordenação. R1 deu relevância 1 ("recusa sem orientar"), e o F1 continua alto porque
-o resto da frase coincide com a referência.
+o resto da frase coincide com a referência. CT05/A está entre as 4 saídas revisadas por R2, que avaliou de forma
+independente e também reprovou (C1 R1 S2), então essa divergência não depende de um único avaliador.
 
 **O que isso diz sobre Q2:** o F1 concordou com as pessoas em 9/12 decisões, mas **errou sempre para o mesmo lado**:
 aprovou respostas incompletas cujas palavras coincidem com a referência. Ele separa bem "fala do assunto certo" de

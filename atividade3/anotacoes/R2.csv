@@ -1,5 +1,5 @@
 ﻿id_cego;avaliador;correcao;relevancia;suporte;falha_critica;justificativa
-S01;;;;;;
-S04;;;;;;
-S06;;;;;;
-S07;;;;;;
+S01;Leonardo;1;1;2;0;Cita a média 7,0 do Art. 2°, mas omite a frequência máxima de 75%
+S04;Leonardo;2;2;2;0;Informa a média 7,0 e a frequência máxima de 75% conforme o Art. 2°
+S06;Leonardo;2;2;2;0;Abstenção correta por falta de evidência e orienta buscar a coordenação
+S07;Leonardo;1;1;2;0;Abstém-se quanto a falta de dados, mas recusa sem orientar procurar a coordenação l

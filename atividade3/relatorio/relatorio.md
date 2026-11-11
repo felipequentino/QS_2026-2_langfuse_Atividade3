@@ -156,24 +156,22 @@ independente, em CT01 e CT05 × A/B (16 anotações).
 
 ### Resultados consolidados
 
-Gerado por `python -m atividade3.scripts.consolidar`. Estado: **12/12 saídas** (0 com erro), **12/12 notas R1**, **0/4 notas R2**, 0 consenso(s). τ = 0.5.
-
-> **Execução/avaliação incompleta.** Campos sem dado aparecem como *pendente*; nenhum número foi estimado ou inventado.
+Gerado por `python -m atividade3.scripts.consolidar`. Estado: **12/12 saídas** (0 com erro), **12/12 notas R1**, **4/4 notas R2**, 0 consenso(s). τ = 0.5.
 
 #### Tabela das 12 saídas
 
 | Caso | Versão | F1 | Sinal auto | Notas R1 | Notas R2 | Consenso | Decisão humana final | Auto = humano? | Justificativa |
 |---|---|---|---|---|---|---|---|---|---|
-| CT01 | A | 0.615 | aprova | C2 R2 S2 FC0 | pendente | — | sim (R1) | sim | 7,0 e frequência de 75% conforme Art. 2º com citação cobrindo ambas |
-| CT01 | B | 0.485 | reprova | C1 R2 S2 FC0 | pendente | — | não (R1) | sim | Cita o Art. 2º com 7,0 correto mas omite a frequência mínima de 75% |
+| CT01 | A | 0.615 | aprova | C2 R2 S2 FC0 | C2 R2 S2 FC0 | — | sim (R1) | sim | 7,0 e frequência de 75% conforme Art. 2º com citação cobrindo ambas |
+| CT01 | B | 0.485 | reprova | C1 R2 S2 FC0 | C1 R1 S2 FC0 | — | não (R1) | sim | Cita o Art. 2º com 7,0 correto mas omite a frequência mínima de 75% |
 | CT02 | A | 0.808 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 5 dias úteis na coordenação conforme Art. 5º |
 | CT02 | B | 0.816 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 5 dias úteis na coordenação conforme Art. 5º sem omissões |
 | CT03 | A | 0.757 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 3 livros simultâneos e 7 dias corridos conforme DOC-BIBLIO |
 | CT03 | B | 0.667 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 3 livros e 7 dias corridos conforme DOC-BIBLIO |
 | CT04 | A | 0.706 | aprova | C1 R2 S2 FC0 | — | — | não (R1) | não | Informa o prazo da 8ª semana pelo portal mas omite que depois só por laudo de saúde |
 | CT04 | B | 0.783 | aprova | C1 R2 S2 FC0 | — | — | não (R1) | não | Informa o prazo da 8ª semana pelo portal mas omite a exceção por laudo de saúde |
-| CT05 | A | 0.833 | aprova | C2 R1 S2 FC0 | pendente | — | não (R1) | não | Abstenção correta sem inventar valor mas recusa sem orientar a coordenação |
-| CT05 | B | 0.950 | aprova | C2 R2 S2 FC0 | pendente | — | sim (R1) | sim | Abstenção correta sem inventar valor e orienta procurar a coordenação |
+| CT05 | A | 0.833 | aprova | C2 R1 S2 FC0 | C1 R1 S2 FC0 | — | não (R1) | não | Abstenção correta sem inventar valor mas recusa sem orientar a coordenação |
+| CT05 | B | 0.950 | aprova | C2 R2 S2 FC0 | C2 R2 S2 FC0 | — | sim (R1) | sim | Abstenção correta sem inventar valor e orienta procurar a coordenação |
 | CT06 | A | 0.485 | reprova | C1 R2 S2 FC0 | — | — | não (R1) | sim | Cita 7,0 correto mas omite os 75% de frequência do Art. 2º |
 | CT06 | B | 0.667 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 7,0 e 75% de frequência conforme Art. 2º |
 
@@ -192,17 +190,17 @@ Notas: C = correção, R = relevância, S = suporte (0–2), FC = falha crítica
 #### Concordâncias
 
 - **Auto–humano** (sinal F1 ≥ τ × decisão humana final): 9/12.
-- **R1–R2** (decisão aprovado/reprovado, só nas 4 saídas revisadas, antes do consenso): pendente.
+- **R1–R2** (decisão aprovado/reprovado, só nas 4 saídas revisadas, antes do consenso): 4/4; notas idênticas nas 4 dimensões em 2/4.
 - *Avaliação adicional por LLM (não humana, não entra na decisão)* × decisão humana: 8/12.
 
 ##### Saídas revisadas por R2
 
 | Caso | Versão | R1 | R2 | Consenso |
 |---|---|---|---|---|
-| CT01 | A | C2 R2 S2 FC0 | pendente | — |
-| CT01 | B | C1 R2 S2 FC0 | pendente | — |
-| CT05 | A | C2 R1 S2 FC0 | pendente | — |
-| CT05 | B | C2 R2 S2 FC0 | pendente | — |
+| CT01 | A | C2 R2 S2 FC0 | C2 R2 S2 FC0 | — |
+| CT01 | B | C1 R2 S2 FC0 | C1 R1 S2 FC0 | — |
+| CT05 | A | C2 R1 S2 FC0 | C1 R1 S2 FC0 | — |
+| CT05 | B | C2 R2 S2 FC0 | C2 R2 S2 FC0 | — |
 
 #### Divergências automático × humano
 
@@ -210,7 +208,7 @@ Saídas em que o sinal automático e a decisão humana discordam: CT04/A, CT04/B
 
 #### Decisão experimental (critério pré-registrado)
 
-**levar B à próxima etapa (provisória)** — aprovação humana B 4/6 > A 3/6, sem falha crítica; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões. Não é autorização para produção.
+**levar B à próxima etapa** — aprovação humana B 4/6 > A 3/6, sem falha crítica. Não é autorização para produção.
 
 ![Gráfico](../resultados/grafico.png)
 
@@ -248,7 +246,8 @@ crítica: o que a resposta afirma está certo, só está incompleto.
 
 **O mesmo padrão em CT04/A (F1 0,706) e CT05/A (F1 0,833).** Em CT05/A a abstenção está correta, mas a resposta não
 orienta o discente a procurar a coordenação. R1 deu relevância 1 ("recusa sem orientar"), e o F1 continua alto porque
-o resto da frase coincide com a referência.
+o resto da frase coincide com a referência. CT05/A está entre as 4 saídas revisadas por R2, que avaliou de forma
+independente e também reprovou (C1 R1 S2), então essa divergência não depende de um único avaliador.
 
 **O que isso diz sobre Q2:** o F1 concordou com as pessoas em 9/12 decisões, mas **errou sempre para o mesmo lado**:
 aprovou respostas incompletas cujas palavras coincidem com a referência. Ele separa bem "fala do assunto certo" de
@@ -361,7 +360,7 @@ guardada, e não presumida.
 
 ## 7. Decisão e questões de análise
 
-**Decisão (critério pré-registrado):** **levar B à próxima etapa (provisória)** — aprovação humana B 4/6 > A 3/6, sem falha crítica; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões.
+**Decisão (critério pré-registrado):** **levar B à próxima etapa** — aprovação humana B 4/6 > A 3/6, sem falha crítica.
 
 - **B melhorou a qualidade humana ou só a métrica?** Aprovação humana 3/6 → 4/6 (melhorou); F1 médio 0.701 → 0.728 (subiu). Falhas críticas: A 0, B 0.
 - **Qual saída mostra melhor o limite do F1?** Ver a seção 5; a calibração com saídas da AV2 já mostrava respostas

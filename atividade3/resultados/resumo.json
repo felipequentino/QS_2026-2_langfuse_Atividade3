@@ -24,21 +24,26 @@
     "saidas": 12,
     "saidas_com_erro": 0,
     "anotacoes_R1": 12,
-    "anotacoes_R2": 0,
+    "anotacoes_R2": 4,
     "consensos": 0
   },
   "concordancia_auto_humano": {
     "iguais": 9,
     "denominador": 12
   },
-  "concordancia_R1_R2": null,
+  "concordancia_R1_R2": {
+    "iguais": 4,
+    "notas_identicas": 2,
+    "denominador": 4,
+    "momento": "antes do consenso"
+  },
   "divergencias_sem_consenso": [],
   "concordancia_IA_humano": {
     "iguais": 8,
     "denominador": 12
   },
-  "decisao": "levar B à próxima etapa (provisória)",
-  "motivo_decisao": "aprovação humana B 4/6 > A 3/6, sem falha crítica; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões",
+  "decisao": "levar B à próxima etapa",
+  "motivo_decisao": "aprovação humana B 4/6 > A 3/6, sem falha crítica",
   "divergencias_auto_humano": [
     "CT04/A",
     "CT04/B",

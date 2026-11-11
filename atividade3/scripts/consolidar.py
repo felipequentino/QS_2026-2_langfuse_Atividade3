@@ -158,6 +158,7 @@ def main():
                                        if len(pares) == 12 else None)
     comp = [x for x in revisadas if x["r1"] and x["r2"]]
     res["concordancia_R1_R2"] = ({"iguais": sum(x["r1"]["aprovado"] == x["r2"]["aprovado"] for x in comp),
+                                  "notas_identicas": sum(all(x["r1"][k] == x["r2"][k] for k in DIMS + ("falha_critica",)) for x in comp),
                                   "denominador": 4, "momento": "antes do consenso"} if len(comp) == 4 else None)
     res["divergencias_sem_consenso"] = [x["id_cego"] for x in comp
                                         if (x["r1"]["aprovado"] != x["r2"]["aprovado"]
@@ -218,7 +219,8 @@ def markdown(linhas, res, revisadas) -> str:
             f"- **Auto–humano** (sinal F1 ≥ τ × decisão humana final): "
             f"{'pendente' if cah is None else str(cah['iguais']) + '/12'}.",
             f"- **R1–R2** (decisão aprovado/reprovado, só nas 4 saídas revisadas, antes do consenso): "
-            f"{'pendente' if crr is None else str(crr['iguais']) + '/4'}.",
+            f"{'pendente' if crr is None else str(crr['iguais']) + '/4'}"
+            f"{'' if crr is None else '; notas idênticas nas 4 dimensões em ' + str(crr['notas_identicas']) + '/4'}.",
             ]
     if res["concordancia_IA_humano"]:
         ci = res["concordancia_IA_humano"]
