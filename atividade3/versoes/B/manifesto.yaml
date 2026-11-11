@@ -1,0 +1,33 @@
+# Manifesto curto da versão B (Atividade 3). Campos "execucao" são preenchidos por scripts/executar.py
+# em versoes/B/execucao.json (não editar à mão).
+versao: B
+mudanca_principal: "restrição 8 adicionada ao prompt (completude das condições e recusa com orientação); nada mais muda"
+codigo:
+  repositorio: este repositório (pasta app/ copiada de QS_2026-2_langfuse_Atividade2 @ 66dadb5, sem alteração)
+  commit: "registrado em execucao.json (git rev-parse HEAD no momento da execução)"
+  fluxo: app.pipeline.responder (configuração hardened_v2 da AV2)
+prompt:
+  arquivo: atividade3/versoes/B/prompt.txt
+  id: P2B
+  versao: 1.1.0
+  sha256: "registrado em execucao.json"
+modelo:
+  provedor: groq            # LLM_PROVIDER do .env; o valor efetivo vai para execucao.json
+  nome: openai/gpt-oss-120b # LLM_MODEL; a revisão retornada pela API (model_version) vai para execucao.json
+  revisao_congelavel: false # a API do Groq não permite fixar revisão/pesos: registrar data e model_version
+  parametros: {temperature: 0, json_mode: strict_json_schema, top_k: 4}
+fonte_contexto:
+  corpus: data/corpus/ (8 documentos sintéticos da AV2)
+  recuperacao: BM25 top-4, somente_oficiais=true, reescrever_consulta=true
+  guardas: quarentena de injeção + escape + saneamento de URL (app/guards.py)
+  contexto_efetivo: "chunks e consulta reescrita salvos em atividade3/saidas/B/CTxx.json"
+casos_referencias: atividade3/casos/casos.yaml (6 casos)
+rubrica_limiar:
+  rubrica: atividade3/rubrica.md
+  tau: 0.5
+  criterio_decisao: atividade3/plano_gqm.md#critério-experimental-de-decisão-fixado-antes-da-bateria
+resultados:
+  saidas_brutas: atividade3/saidas/B/
+  metrica_automatica: atividade3/resultados/tabela_12.csv
+  avaliacao_humana: atividade3/anotacoes/R1.csv, R2.csv, consenso.csv
+  consolidado: atividade3/resultados/resultados.md

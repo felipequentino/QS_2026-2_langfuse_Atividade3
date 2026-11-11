@@ -1,0 +1,37 @@
+{
+  "tau": 0.5,
+  "por_versao": {
+    "A": {
+      "f1_medio": null,
+      "f1_mediano": null,
+      "auto_aprovados": null,
+      "aprovados": null,
+      "aprovacao_humana": null,
+      "falhas_criticas": null,
+      "denominador": 6
+    },
+    "B": {
+      "f1_medio": null,
+      "f1_mediano": null,
+      "auto_aprovados": null,
+      "aprovados": null,
+      "aprovacao_humana": null,
+      "falhas_criticas": null,
+      "denominador": 6
+    }
+  },
+  "status": {
+    "saidas": 0,
+    "saidas_com_erro": 0,
+    "anotacoes_R1": 0,
+    "anotacoes_R2": 0,
+    "consensos": 0
+  },
+  "concordancia_auto_humano": null,
+  "concordancia_R1_R2": null,
+  "divergencias_sem_consenso": [],
+  "concordancia_IA_humano": null,
+  "decisao": "pendente",
+  "motivo_decisao": "faltam decisões humanas finais",
+  "divergencias_auto_humano": []
+}

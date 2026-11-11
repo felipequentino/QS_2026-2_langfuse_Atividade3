@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AV3 Métrica × Humano</title>
+<!-- Fonte dos slides. slides.html/slides.pdf são gerados por: python -m atividade3.scripts.build_pdfs -->
+<style>
+  :root { --azul: #1f3b63; --azul2: #2b5fa8; --claro: #e8eef6; --ok: #1d7a46; --falha: #b3261e; --alerta: #9a6700;
+          --tx: #1d1d1f; --mudo: #5b6472; --A: #2a78d6; --B: #eb6834; }
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: var(--tx); background: #fff; }
+  section { width: 13.333in; height: 7.5in; padding: 0.55in 0.75in; page-break-after: always; position: relative; overflow: hidden; }
+  section:last-child { page-break-after: auto; }
+  h1 { font-size: 34pt; color: var(--azul); margin: 0 0 12px; }
+  h2 { font-size: 26pt; color: var(--azul); margin: 0 0 18px; border-bottom: 3px solid var(--claro); padding-bottom: 8px; }
+  p, li { font-size: 16pt; line-height: 1.4; }
+  li { margin-bottom: 6px; }
+  .sub { font-size: 18pt; color: var(--mudo); }
+  .rodape { position: absolute; bottom: 0.3in; left: 0.75in; right: 0.75in; font-size: 10pt; color: var(--mudo); display: flex; justify-content: space-between; }
+  table { border-collapse: collapse; width: 100%; font-size: 13pt; }
+  th { background: var(--claro); color: var(--azul); text-align: left; }
+  th, td { border: 1px solid #c3cddb; padding: 5px 9px; vertical-align: top; }
+  table.pq { font-size: 11.5pt; } table.pq td, table.pq th { padding: 3px 8px; }
+  code { font-family: Consolas, monospace; background: #f2f4f7; padding: 0 4px; font-size: 0.9em; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .caixa { background: #f6f8fb; border-left: 5px solid var(--azul2); padding: 12px 16px; font-size: 13.5pt; line-height: 1.4; }
+  .caixa.vermelha { border-left-color: var(--falha); } .caixa.verde { border-left-color: var(--ok); }
+  .caixa.A { border-left-color: var(--A); } .caixa.B { border-left-color: var(--B); }
+  .fluxo { display: flex; align-items: center; gap: 6px; margin: 22px 0; }
+  .no { background: var(--claro); border: 2px solid var(--azul2); border-radius: 10px; padding: 10px 6px; font-size: 11.5pt; text-align: center; flex: 1 1 0; min-width: 0; }
+  .seta { font-size: 18pt; color: var(--azul2); flex: 0 0 auto; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 10px; }
+  .kpi { background: var(--claro); border-radius: 10px; padding: 14px; text-align: center; }
+  .kpi b { display: block; font-size: 26pt; color: var(--azul); }
+  .kpi span { font-size: 12pt; color: var(--mudo); }
+  pre { background: #f2f4f7; padding: 10px 12px; font-size: 11pt; white-space: pre-wrap; margin: 6px 0; border-left: 4px solid var(--azul2); }
+  .add { background: #fff1e8; display: block; }
+  img { max-width: 100%; max-height: 4.3in; display: block; margin: 0 auto; }
+  .pend { color: var(--alerta); font-weight: 600; font-size: 16pt; }
+  .quem { position: absolute; top: 0.25in; right: 0.75in; font-size: 10.5pt; color: var(--mudo); }
+</style>
+</head>
+<body>
+
+<section style="display:flex;flex-direction:column;justify-content:center;">
+  <p class="sub">Qualidade de Software · Atividade 3 · 12/11/2026</p>
+  <h1>Métrica automática × avaliação humana</h1>
+  <p style="font-size:22pt;margin-top:0">Uma mudança simples no prompt melhora as respostas? E o F1 concorda com as pessoas?</p>
+  <p style="font-size:14pt;color:var(--mudo);margin-top:40px">Equipe 01: Bruno Saint Clair Silva Oliveira · Gabriel Bastos Pimentel · Gian Glauberty Santos Nascimento ·
+    João Felipe Quentino · João Victor Oliveira Moura · Leonardo de Souza Aragão · Renner do Nascimento Brito</p>
+  <p style="font-size:13pt;color:var(--mudo)">{{REPO}} · pasta <code>atividade3/</code> · vídeo: {{VIDEO}}</p>
+  <p style="font-size:12pt;color:var(--mudo)">Estado dos dados neste PDF: {{STATUS}}</p>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Renner</span>
+  <h2>Recorte: um único fluxo da AV2</h2>
+  <div class="fluxo">
+    <div class="no">Pergunta</div><span class="seta">→</span>
+    <div class="no">Reescrita de consulta</div><span class="seta">→</span>
+    <div class="no">BM25 top-4<br>só fontes oficiais</div><span class="seta">→</span>
+    <div class="no">Quarentena de injeção</div><span class="seta">→</span>
+    <div class="no" style="border-color:var(--B);border-width:3px"><b>Prompt P2</b><br>(A ou B)</div><span class="seta">→</span>
+    <div class="no">gpt-oss-120b<br>Groq, T=0, JSON</div><span class="seta">→</span>
+    <div class="no">Validador<br>→ <code>resposta</code></div>
+  </div>
+  <div class="caixa">Configuração final aprovada na AV2 (<code>hardened_v2</code>), reutilizada sem reconstrução (código copiado de
+    <code>QS_2026-2_langfuse_Atividade2@66dadb5</code>). Corpus: 8 documentos sintéticos da "USN". Avaliamos o texto que o discente lê.</div>
+  <div class="rodape"><span>Contexto</span><span>atividade3/plano_gqm.md</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: João Felipe</span>
+  <h2>Plano GQM (registrado antes da bateria)</h2>
+  <table class="pq">
+    <tr><th style="width:12%">G</th><td colspan="3">Analisar o assistente RAG para decidir se uma mudança simples no prompt melhora correção, relevância e suporte, do ponto de vista do discente</td></tr>
+    <tr><th>Q1</th><td colspan="3">A versão B atende melhor à tarefa do que A?</td></tr>
+    <tr><th>Q2</th><td colspan="3">O sinal automático (F1 ≥ τ) representa a adequação julgada por pessoas?</td></tr>
+    <tr><th>Medida</th><th>Unidade / fórmula</th><th>Denominador</th><th>Limitação</th></tr>
+    <tr><td>M1 F1 lexical → Q2</td><td>2PR/(P+R); NFC, casefold, <code>\w+</code>, multiconjunto</td><td>média/mediana de 6 por versão</td><td>sobreposição ≠ verdade; pune respostas longas</td></tr>
+    <tr><td>M2 aprovação humana → Q1</td><td>C=R=S=2 e sem falha crítica</td><td>x/6 por versão</td><td>8 de 12 só com R1</td></tr>
+    <tr><td>M3 concordância auto–humano → Q2</td><td>(F1 ≥ τ) == decisão humana</td><td>iguais/12</td><td>depende de τ</td></tr>
+  </table>
+  <p style="font-size:14pt"><b>τ = 0,5</b>, fixado antes. Na calibração com saídas reais da AV2, respostas <b>corretas e curtas</b> tiveram F1 0,29–0,43, ou seja, abaixo de τ.</p>
+  <div class="rodape"><span>Parte A</span><span>atividade3/plano_gqm.md · resultados/calibracao_tau.md</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Bruno</span>
+  <h2>Seis casos e referências humanas</h2>
+  <table class="pq">
+    <tr><th>Caso</th><th>Tipo</th><th>Pergunta</th><th>Referência (resumo)</th></tr>
+    <tr><td>CT01</td><td>funcional</td><td>Qual a média mínima para ser aprovado por média?</td><td>≥ 7,0 <b>e</b> frequência ≥ 75%</td></tr>
+    <tr><td>CT02</td><td>funcional</td><td>Qual o prazo para pedir revisão de nota?</td><td>na coordenação, até 5 dias úteis</td></tr>
+    <tr><td>CT03</td><td>funcional</td><td>Quantos livros posso pegar e por quanto tempo?</td><td>até 3 livros, 7 dias corridos</td></tr>
+    <tr><td>CT04</td><td>funcional</td><td>Até quando posso trancar a matrícula?</td><td>portal, até a 8ª semana; depois só com laudo</td></tr>
+    <tr><td>CT05</td><td>sem evidência</td><td>Qual o valor da bolsa de iniciação científica?</td><td><b>abster-se</b> e orientar a coordenação</td></tr>
+    <tr><td>CT06</td><td>variação de CT01</td><td><i>qual a media minima pra ser aprovdo por media?</i></td><td>igual a CT01 (não é independente)</td></tr>
+  </table>
+  <p style="font-size:14pt">Referências escritas a partir do trecho da fonte, nunca de saída do modelo. Armadilha: CT01, CT02 e CT06 também recuperam o <b>regulamento revogado de 2019</b> (6,0 e 2 dias).</p>
+  <div class="rodape"><span>Parte B</span><span>atividade3/casos/casos.yaml</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Gabriel</span>
+  <h2>A × B: uma única mudança no prompt</h2>
+  <div class="grid2">
+    <div class="caixa A"><b>Versão A: baseline</b><br>Prompt P2 1.0.0 da AV2, sem alteração de conteúdo (só o id interno vira <code>P2A</code>).<br><br>
+      Nas saídas reais da AV2 ele acertava, mas <b>omitia condições</b>: <i>"A média mínima para aprovação direta é 7,0 (sete)."</i> (falta a frequência de 75%). E recusava sem orientar.</div>
+    <div class="caixa B"><b>Versão B: + restrição 8</b>
+<pre>  7. Responda em português, mesmo que ...
+<span class="add">+ 8. Responda de forma completa e direta, em no
++    máximo três frases: inclua todas as condições
++    que o documento vigente associa à regra
++    (valores, prazos, requisitos cumulativos, onde
++    ou como solicitar e exceções). Ao recusar, diga
++    que a informação não consta nos documentos e
++    oriente a procurar a coordenação do curso.</span></pre></div>
+  </div>
+  <p style="font-size:14pt">Modelo, parâmetros, recuperação, guardas, corpus e casos iguais. Uma execução por caso e versão, o que dá <b>12 saídas brutas</b>, sem descartar erro.</p>
+  <div class="rodape"><span>Parte B</span><span>diff atividade3/versoes/A/prompt.txt atividade3/versoes/B/prompt.txt</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Gian (R1) e Leonardo (R2)</span>
+  <h2>Avaliação humana cega</h2>
+  <table class="pq">
+    <tr><th>Dimensão</th><th>0</th><th>1</th><th>2</th></tr>
+    <tr><td>Correção</td><td>erro substantivo</td><td>parcial / erro menor</td><td>sem erro frente à referência</td></tr>
+    <tr><td>Relevância</td><td>não atende</td><td>atende parcialmente</td><td>atende, inclusive abstenção correta</td></tr>
+    <tr><td>Suporte</td><td>sem suporte</td><td>parcial</td><td>afirmações sustentadas / abstenção justificada</td></tr>
+  </table>
+  <div class="grid2" style="margin-top:16px">
+    <div class="caixa"><b>Aprovação</b> = três notas 2 e nenhuma <b>falha crítica</b> (regra prévia: valor revogado ou errado, CT05 inventado, URL falsa ou pedido de senha, saída vazia).</div>
+    <div class="caixa"><b>R1</b>: 12 saídas. <b>R2</b>: CT01 e CT05 × A/B (4), de forma independente e antes de conversar. Consenso só se divergir. Total de <b>16 anotações</b>. Planilha com ids <code>S01…S12</code> embaralhados, sem versão nem F1.</div>
+  </div>
+  <div class="rodape"><span>Parte D</span><span>atividade3/rubrica.md · anotacoes/</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: João Felipe</span>
+  <h2>Resultados por versão (denominador 6)</h2>
+  <div class="kpis">
+    <div class="kpi"><b><span style="color:var(--A);font-size:26pt">{{HUM_A}}</span> → <span style="color:var(--B);font-size:26pt">{{HUM_B}}</span></b><span>aprovação humana A → B</span></div>
+    <div class="kpi"><b>{{F1_A}} → {{F1_B}}</b><span>F1 médio A → B (medianas {{F1MED_A}} / {{F1MED_B}})</span></div>
+    <div class="kpi"><b>{{CONC_AH}}</b><span>concordância auto–humano (12 decisões)</span></div>
+    <div class="kpi"><b>{{CONC_RR}}</b><span>concordância R1–R2 (4 revisadas, antes do consenso)</span></div>
+  </div>
+  <table class="pq" style="margin-top:22px">
+    <tr><th>Medida</th><th>A</th><th>B</th></tr>
+    <tr><td>Sinal automático aprova (F1 ≥ 0,5)</td><td>{{AUTO_A}}</td><td>{{AUTO_B}}</td></tr>
+    <tr><td>Aprovação humana</td><td>{{HUM_A}}</td><td>{{HUM_B}}</td></tr>
+    <tr><td>Falhas críticas</td><td>{{FC_A}}</td><td>{{FC_B}}</td></tr>
+  </table>
+  <div class="rodape"><span>Parte E</span><span>resultados/resumo.json</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: João Felipe</span>
+  <h2>F1 por caso × decisão humana</h2>
+  {{GRAFICO}}
+  <div class="rodape"><span>Parte E</span><span>resultados/grafico.png · tabela_12.csv</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Renner</span>
+  <h2>As 12 saídas</h2>
+  <table class="pq">
+    <tr><th>Caso</th><th>Versão</th><th>F1</th><th>Sinal auto</th><th>Notas R1</th><th>Humano final</th><th>Auto = humano?</th></tr>
+    {{TABELA}}
+  </table>
+  <div class="rodape"><span>Parte E</span><span>resultados/tabela_12.csv</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Renner</span>
+  <h2>Divergência automático × humano</h2>
+  <p>Saídas em que o F1 e as pessoas discordam: <b>{{DIVERG}}</b></p>
+  <div class="grid2">
+    <div class="caixa vermelha"><b>Limites do F1 já esperados</b><ul style="margin:4px 0">
+      <li style="font-size:13pt">Resposta correta e completa, porém mais longa → precisão baixa → F1 &lt; τ</li>
+      <li style="font-size:13pt">"7,0" × "6,0" (revogado) diferem em 1 token → F1 alto para um erro crítico</li>
+      <li style="font-size:13pt">Recusa correta com outras palavras → F1 baixo</li></ul></div>
+    <div class="caixa"><b>Caso analisado</b> (a equipe preenche com a evidência)<br>pergunta · referência · resposta · P/R/F1 · notas e trecho da fonte que sustenta o julgamento.<br><br><i>docs/analise_divergencia.md</i></div>
+  </div>
+  <div class="rodape"><span>Parte E</span><span>atividade3/docs/analise_divergencia.md</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: João Victor</span>
+  <h2>Versionamento: como reconstruir uma saída</h2>
+<pre>A ou B → versoes/&lt;v&gt;/prompt.txt (sha256) + manifesto.yaml + execucao.json (commit, modelo, model_version, data)
+      → casos/casos.yaml + data/corpus/ + rubrica.md / τ=0,5
+      → saidas/&lt;v&gt;/CTxx.json (saída bruta, consulta reescrita, chunks usados, trace Langfuse)
+      → anotacoes/R1, R2, consenso (via chave_cegamento) → resultados/tabela_12.csv → decisão</pre>
+  <div class="grid2" style="margin-top:12px">
+    <div class="caixa verde"><b>Congelável</b>: código, prompt, corpus, casos, parâmetros, contexto efetivamente usado, rubrica e τ.
+      <code>git checkout &lt;commit&gt; && python -m atividade3.scripts.executar --versao A</code></div>
+    <div class="caixa vermelha"><b>Não congelável</b>: a revisão do <code>gpt-oss-120b</code> hospedado no Groq. Registramos <code>model_version</code> e data; T=0 não garante determinismo, e a reescrita de consulta também vem do LLM.</div>
+  </div>
+  <div class="rodape"><span>Parte F</span><span>atividade3/docs/ciclo_vida.md</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Leonardo</span>
+  <h2>Decisão experimental</h2>
+  <div class="caixa verde" style="font-size:20pt"><b>{{DECISAO}}</b><br><span style="font-size:14pt">{{MOTIVO}}</span></div>
+  <p style="font-size:14pt;margin-top:18px"><b>Critério pré-registrado:</b> qualquer falha crítica em B → revisar B; aprovação humana B &gt; A → levar B à próxima etapa; empate ou piora → manter A. Ganho só de F1 não conta.</p>
+  <ul>
+    <li style="font-size:14pt">Não é autorização para produção: seis casos não demonstram risco zero.</li>
+    <li style="font-size:14pt">Acompanhar: falha crítica (alvo 0), recusa com evidência, tamanho da resposta e aprovação humana em casos novos.</li>
+    <li style="font-size:14pt">Voltar a A: trocar <code>P2B</code> por <code>P2A</code> (o arquivo de A nunca é editado).</li>
+  </ul>
+  <div class="rodape"><span>§10</span><span>atividade3/plano_gqm.md</span></div>
+</section>
+
+<section>
+  <span class="quem">Apresenta: Bruno e Gabriel</span>
+  <h2>Limitações e uso de IA</h2>
+  <div class="grid2">
+    <div class="caixa"><b>Limitações</b><ul style="margin:4px 0">
+      <li style="font-size:13pt">6 casos, 1 execução cada; CT06 depende de CT01</li>
+      <li style="font-size:13pt">8 de 12 decisões só com R1; R1–R2 sobre 4 saídas</li>
+      <li style="font-size:13pt">Cegamento parcial: o estilo de B é reconhecível</li>
+      <li style="font-size:13pt">Modelo hospedado não congelável; corpus sintético</li></ul></div>
+    <div class="caixa"><b>Uso de IA</b>: Claude Code (Claude Opus 5.5) para estruturar scripts e as primeiras versões dos textos.<br>
+      <b>Aproveitada:</b> F1 conforme o kit, com teste calculado à mão.<br>
+      <b>Corrigida:</b> pinos de dependência da AV2 que não instalavam no Python 3.10.<br>
+      <b>Rejeitada:</b> usar IA para preencher as notas "humanas". A avaliação por LLM é só <i>adicional</i>.</div>
+  </div>
+  <div class="rodape"><span>§11 e §13</span><span>atividade3/docs/uso_ia.md</span></div>
+</section>
+
+</body>
+</html>

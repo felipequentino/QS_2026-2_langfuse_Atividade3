@@ -1,0 +1,11 @@
+# Versões testadas em Python 3.10 (a AV2 usava langfuse==5.0.4, indisponível para 3.10).
+google-genai==2.33.0
+groq==1.7.0
+httpx==0.28.1
+langfuse==4.18.0
+Markdown==3.10.3
+matplotlib==3.10.9
+pydantic==2.14.3
+pytest==9.2.0
+python-dotenv==1.2.4
+PyYAML==6.0.3

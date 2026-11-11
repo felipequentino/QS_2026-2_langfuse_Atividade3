@@ -1,0 +1,83 @@
+# Atividade 3 — seis casos finais (pré-registrados em 10/11/2026).
+# A referência é escrita por pessoa a partir do trecho da fonte, nunca copiada de uma resposta do modelo.
+# revisado_por: preencher com o nome de quem conferiu referência × trecho antes da bateria.
+# Corpus: data/corpus/ (sintético, reutilizado da AV2 sem alteração).
+
+- id: CT01
+  tipo: funcional
+  pergunta: Qual a média mínima para ser aprovado por média?
+  referencia: >-
+    É aprovado por média quem obtiver média semestral igual ou superior a 7,0 e frequência mínima de 75% da
+    carga horária.
+  fonte: DOC-AVA-2026#2
+  trecho: >-
+    Art. 2º É aprovado por média o discente que obtiver média semestral igual ou superior a 7,0 (sete) e
+    frequência mínima de 75% (setenta e cinco por cento) da carga horária da disciplina.
+  armadilha: o regulamento revogado (DOC-AVA-2019#2, média 6,0 e 70%) também é recuperado
+  revisado_por: ""
+
+- id: CT02
+  tipo: funcional
+  pergunta: Qual o prazo para pedir revisão de nota?
+  referencia: >-
+    O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 dias úteis após a
+    divulgação do resultado.
+  fonte: DOC-AVA-2026#5
+  trecho: >-
+    Art. 5º O pedido de revisão de nota deve ser protocolado na coordenação do curso em até 5 (cinco) dias úteis
+    após a divulgação do resultado.
+  armadilha: o regulamento revogado (DOC-AVA-2019#3, 2 dias úteis) também é recuperado
+  revisado_por: ""
+
+- id: CT03
+  tipo: funcional
+  pergunta: Quantos livros posso pegar emprestado na biblioteca e por quanto tempo?
+  referencia: >-
+    O discente de graduação pode emprestar até 3 livros ao mesmo tempo, pelo prazo de 7 dias corridos.
+  fonte: DOC-BIBLIO#1
+  trecho: >-
+    Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias
+    corridos.
+  armadilha: pergunta com duas partes (quantidade e prazo)
+  revisado_por: ""
+
+- id: CT04
+  tipo: funcional
+  pergunta: Até quando posso solicitar o trancamento total da matrícula?
+  referencia: >-
+    O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo;
+    depois disso, só por motivo de saúde comprovado por laudo.
+  fonte: DOC-TRANC#2
+  trecho: >-
+    O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo
+    (metade do período). Após esse prazo, o pedido só é aceito por motivo de saúde comprovado por laudo.
+  armadilha: exceção (laudo) é parte da resposta completa
+  revisado_por: ""
+
+- id: CT05
+  tipo: sem_evidencia
+  pergunta: Qual o valor da bolsa de iniciação científica?
+  referencia: >-
+    A informação sobre o valor da bolsa de iniciação científica não consta nos documentos disponíveis;
+    procure a coordenação do curso.
+  fonte: nenhuma
+  trecho: >-
+    (nenhum documento informa valor de bolsa; DOC-ATIVCOMP#2 só cita a iniciação científica como atividade
+    complementar)
+  armadilha: o BM25 recupera DOC-ATIVCOMP#2, que menciona "iniciação científica" sem valor; abster-se é o correto
+  revisado_por: ""
+
+- id: CT06
+  tipo: variacao
+  relacionado_a: CT01
+  variacao: sem acentos, abreviação "pra" e erro de digitação "aprovdo"; intenção preservada
+  pergunta: qual a media minima pra ser aprovdo por media?
+  referencia: >-
+    É aprovado por média quem obtiver média semestral igual ou superior a 7,0 e frequência mínima de 75% da
+    carga horária.
+  fonte: DOC-AVA-2026#2
+  trecho: >-
+    Art. 2º É aprovado por média o discente que obtiver média semestral igual ou superior a 7,0 (sete) e
+    frequência mínima de 75% (setenta e cinco por cento) da carga horária da disciplina.
+  armadilha: não é observação independente de CT01
+  revisado_por: ""

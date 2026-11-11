@@ -1,0 +1,13 @@
+﻿caso_id;versao;tipo;id_cego;status_saida;resposta;f1;p_tokens;r_tokens;sinal_automatico;notas_R1;notas_R2;notas_consenso;origem_decisao;aprovacao_humana_final;falha_critica_final;justificativa;concorda_auto_humano;IA_adicional_aprova;trace_url
+CT01;A;funcional;;pendente;;;;;;pendente;pendente;—;;;;;;;
+CT01;B;funcional;;pendente;;;;;;pendente;pendente;—;;;;;;;
+CT02;A;funcional;;pendente;;;;;;pendente;—;—;;;;;;;
+CT02;B;funcional;;pendente;;;;;;pendente;—;—;;;;;;;
+CT03;A;funcional;;pendente;;;;;;pendente;—;—;;;;;;;
+CT03;B;funcional;;pendente;;;;;;pendente;—;—;;;;;;;
+CT04;A;funcional;;pendente;;;;;;pendente;—;—;;;;;;;
+CT04;B;funcional;;pendente;;;;;;pendente;—;—;;;;;;;
+CT05;A;sem_evidencia;;pendente;;;;;;pendente;pendente;—;;;;;;;
+CT05;B;sem_evidencia;;pendente;;;;;;pendente;pendente;—;;;;;;;
+CT06;A;variacao;;pendente;;;;;;pendente;—;—;;;;;;;
+CT06;B;variacao;;pendente;;;;;;pendente;—;—;;;;;;;

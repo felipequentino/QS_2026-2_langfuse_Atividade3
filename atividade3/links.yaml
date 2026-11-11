@@ -1,0 +1,3 @@
+# Preencher antes de gerar os PDFs finais (python -m atividade3.scripts.build_pdfs).
+repo_url: https://github.com/felipequentino/QS_2026-2_langfuse_Atividade3   # confirmar após criar o repositório
+video_url: ""                                                                 # link do vídeo (não enviar o arquivo)
