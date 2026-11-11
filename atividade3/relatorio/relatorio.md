@@ -156,7 +156,7 @@ independente, em CT01 e CT05 × A/B (16 anotações).
 
 ### Resultados consolidados
 
-Gerado por `python -m atividade3.scripts.consolidar`. Estado: **0/12 saídas** (0 com erro), **0/12 notas R1**, **0/4 notas R2**, 0 consenso(s). τ = 0.5.
+Gerado por `python -m atividade3.scripts.consolidar`. Estado: **12/12 saídas** (0 com erro), **0/12 notas R1**, **0/4 notas R2**, 0 consenso(s). τ = 0.5.
 
 > **Execução/avaliação incompleta.** Campos sem dado aparecem como *pendente*; nenhum número foi estimado ou inventado.
 
@@ -164,18 +164,18 @@ Gerado por `python -m atividade3.scripts.consolidar`. Estado: **0/12 saídas** (
 
 | Caso | Versão | F1 | Sinal auto | Notas R1 | Notas R2 | Consenso | Decisão humana final | Auto = humano? | Justificativa |
 |---|---|---|---|---|---|---|---|---|---|
-| CT01 | A | pendente | pendente | pendente | pendente | — | pendente | pendente | — |
-| CT01 | B | pendente | pendente | pendente | pendente | — | pendente | pendente | — |
-| CT02 | A | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT02 | B | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT03 | A | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT03 | B | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT04 | A | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT04 | B | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT05 | A | pendente | pendente | pendente | pendente | — | pendente | pendente | — |
-| CT05 | B | pendente | pendente | pendente | pendente | — | pendente | pendente | — |
-| CT06 | A | pendente | pendente | pendente | — | — | pendente | pendente | — |
-| CT06 | B | pendente | pendente | pendente | — | — | pendente | pendente | — |
+| CT01 | A | 0.615 | aprova | pendente | pendente | — | pendente | pendente | — |
+| CT01 | B | 0.485 | reprova | pendente | pendente | — | pendente | pendente | — |
+| CT02 | A | 0.808 | aprova | pendente | — | — | pendente | pendente | — |
+| CT02 | B | 0.816 | aprova | pendente | — | — | pendente | pendente | — |
+| CT03 | A | 0.757 | aprova | pendente | — | — | pendente | pendente | — |
+| CT03 | B | 0.667 | aprova | pendente | — | — | pendente | pendente | — |
+| CT04 | A | 0.706 | aprova | pendente | — | — | pendente | pendente | — |
+| CT04 | B | 0.783 | aprova | pendente | — | — | pendente | pendente | — |
+| CT05 | A | 0.833 | aprova | pendente | pendente | — | pendente | pendente | — |
+| CT05 | B | 0.950 | aprova | pendente | pendente | — | pendente | pendente | — |
+| CT06 | A | 0.485 | reprova | pendente | — | — | pendente | pendente | — |
+| CT06 | B | 0.667 | aprova | pendente | — | — | pendente | pendente | — |
 
 Notas: C = correção, R = relevância, S = suporte (0–2), FC = falha crítica (0/1). Aprovação humana = C2 R2 S2 e FC0.
 
@@ -183,9 +183,9 @@ Notas: C = correção, R = relevância, S = suporte (0–2), FC = falha crítica
 
 | Medida | Versão A | Versão B |
 |---|---|---|
-| F1 médio | pendente | pendente |
-| F1 mediano | pendente | pendente |
-| Sinal automático aprova (F1 ≥ τ) | pendente | pendente |
+| F1 médio | 0.701 | 0.728 |
+| F1 mediano | 0.732 | 0.725 |
+| Sinal automático aprova (F1 ≥ τ) | 5/6 | 5/6 |
 | **Aprovação humana** | pendente | pendente |
 | Falhas críticas | pendente | pendente |
 
@@ -210,6 +210,8 @@ Pendente (faltam saídas ou decisões humanas).
 #### Decisão experimental (critério pré-registrado)
 
 **pendente** — faltam decisões humanas finais. Não é autorização para produção.
+
+![Gráfico](../resultados/grafico.png)
 
 
 
@@ -238,6 +240,23 @@ número trocado com as mesmas palavras; recusa com outras palavras)
 **Evidência que sustenta a avaliação humana:** (trecho da fonte, citação da resposta, regra da rubrica aplicada)
 
 **O que isso diz sobre Q2:**
+
+#### Observações factuais da execução (antes das notas humanas)
+
+Registradas a partir das saídas e do F1; **não são avaliação humana** e não antecipam as notas de R1/R2.
+
+- **O efeito de B não foi uniforme.** CT01/A respondeu "7,0 (sete), com frequência mínima de 75 %"
+  (F1 0,615), e CT01/B respondeu só "7,0 (sete)" (F1 0,485). Na variação CT06 ocorreu o inverso: A só "7,0" (0,485),
+  B "7,0, exigindo frequência mínima de 75%" (0,667). A mesma regra produziu completude em um par e não no outro.
+- **CT04 nas duas versões omite a exceção do laudo** que está na referência, e mesmo assim o F1 é alto
+  (A 0,706; B 0,783 com P = 1,0): o F1 aprova uma resposta que pode ser parcial. É um candidato a divergência
+  quando as notas humanas estiverem prontas.
+- **CT05**: as duas versões se abstêm. B segue a regra 8 e orienta procurar a coordenação, o que leva o F1 a 0,950;
+  A não orienta e tem F1 0,833.
+- **Avaliação adicional por LLM (não humana)**: deu suporte 0 às duas abstenções de CT05, embora a rubrica atribua 2
+  à "abstenção justificada". Também aprovou CT01/B e CT06/A, que omitem os 75%, e tratou CT04/A e CT04/B de forma
+  diferente (reprovou A e aprovou B), quando as duas omitem o laudo. Exemplo concreto de por que o juiz LLM não
+  substitui a avaliação humana [JUDGE].
 
 #### Limites esperados do F1 (registrados antes da bateria)
 

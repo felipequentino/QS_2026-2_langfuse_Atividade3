@@ -1,0 +1,13 @@
+﻿id_cego;avaliador;correcao;relevancia;suporte;falha_critica;justificativa
+S01;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;A resposta indica 7,0, conforme o trecho que estabelece média semestral igual ou superior a 7,0.
+S02;LLM openai/gpt-oss-120b (adicional, NÃO humano);1;2;2;0;"Resposta correta sobre prazo, mas omite condição pós‑prazo; cita trecho que cobre o prazo mencionado."
+S03;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Resposta coincide com o trecho [DOC-AVA-2026] que estabelece prazo de 5 dias úteis após divulgação.
+S04;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Média mínima 7,0 conforme DOC-AVA-2026 Art.2, que indica 'média semestral igual ou superior a 7,0'.
+S05;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;A resposta indica 7,0, conforme trecho que menciona média ≥7,0 [DOC-AVA-2026]
+S06;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;0;0;"Resposta coincide com a referência, porém não há citações; o TRECHO indica que nenhum documento informa o valor."
+S07;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;0;0;Resposta correta conforme referência, porém não há citações que sustentem a afirmação.
+S08;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Resposta correta (7,0 e 75%) conforme [DOC-AVA-2026] Art. 2º.
+S09;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Resposta coincide com o Art. 5º que estabelece prazo de 5 dias úteis (citação [DOC-AVA-2026]).
+S10;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Resposta coincide com o trecho: 'Discentes de graduação podem emprestar até 3 (três) livros simultaneamente pelo prazo de 7 (sete) dias corridos'.
+S11;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Resposta coincide com a fonte que indica até 3 livros e prazo de 7 dias corridos [DOC-BIBLIO].
+S12;LLM openai/gpt-oss-120b (adicional, NÃO humano);2;2;2;0;Resposta correta ao prazo, citando DOC-TRANC que confirma o fim da 8ª semana do semestre letivo.

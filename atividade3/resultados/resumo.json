@@ -2,18 +2,18 @@
   "tau": 0.5,
   "por_versao": {
     "A": {
-      "f1_medio": null,
-      "f1_mediano": null,
-      "auto_aprovados": null,
+      "f1_medio": 0.701,
+      "f1_mediano": 0.732,
+      "auto_aprovados": 5,
       "aprovados": null,
       "aprovacao_humana": null,
       "falhas_criticas": null,
       "denominador": 6
     },
     "B": {
-      "f1_medio": null,
-      "f1_mediano": null,
-      "auto_aprovados": null,
+      "f1_medio": 0.728,
+      "f1_mediano": 0.725,
+      "auto_aprovados": 5,
       "aprovados": null,
       "aprovacao_humana": null,
       "falhas_criticas": null,
@@ -21,7 +21,7 @@
     }
   },
   "status": {
-    "saidas": 0,
+    "saidas": 12,
     "saidas_com_erro": 0,
     "anotacoes_R1": 0,
     "anotacoes_R2": 0,
