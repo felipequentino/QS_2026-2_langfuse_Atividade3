@@ -114,7 +114,7 @@ def slides(r: dict, links: dict):
         "HUM_A": n(a["aprovados"], "/6"), "HUM_B": n(b["aprovados"], "/6"),
         "FC_A": n(a["falhas_criticas"]), "FC_B": n(b["falhas_criticas"]),
         "CONC_AH": "pendente" if cah is None else f"{cah['iguais']}/12",
-        "CONC_RR": "pendente" if crr is None else f"{crr['iguais']}/4",
+        "CONC_RR": "aguardando R2" if crr is None else f"{crr['iguais']}/4",
         "DECISAO": html.escape(r["decisao"]), "MOTIVO": html.escape(r["motivo_decisao"]),
         "DIVERG": html.escape(", ".join(r["divergencias_auto_humano"]) or "nenhuma / pendente"),
         "STATUS": f"{r['status']['saidas']}/12 saídas · {r['status']['anotacoes_R1']}/12 R1 · {r['status']['anotacoes_R2']}/4 R2",

@@ -1,28 +1,48 @@
 # Análise de divergência automático × humano (Parte E)
 
-> **A preencher pela equipe depois de `consolidar.py`.** Escolha ao menos uma saída da lista "Divergências
-> automático × humano" em `resultados/resultados.md`. Se não houver nenhuma, declare isso e discuta um caso-limite
-> real (ex.: a saída com F1 mais perto de τ). Não invente discordância.
+Divergências automático × humano nas 12 decisões (concordância 9/12): **CT04/A, CT04/B e CT05/A**. Nas três o
+F1 aprova (≥ 0,5) e a decisão humana (R1) reprova. Não houve o caso inverso (F1 reprova e o humano aprova): CT01/B e
+CT06/A ficaram abaixo de τ e também foram reprovados por R1.
 
-## Saída escolhida: `<CTxx / versão>`
+## Saída escolhida: CT04 / versão B
 
 | Campo | Valor |
 |---|---|
-| Pergunta | |
-| Referência | |
-| Resposta entregue | |
-| F1 (P, R) | |
-| Sinal automático | |
-| Decisão humana final (notas e origem) | |
+| Pergunta | Até quando posso solicitar o trancamento total da matrícula? |
+| Referência | O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo; depois disso, só por motivo de saúde comprovado por laudo. |
+| Resposta entregue | O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo. |
+| F1 (P, R) | **0,783** (P = 1,000; R = 0,643) |
+| Sinal automático | aprova (0,783 ≥ 0,5): o maior F1 entre as respostas que o humano reprovou |
+| Decisão humana final (notas e origem) | **reprova**: C1 R2 S2, FC0 (R1). Justificativa de R1: "Informa o prazo da 8ª semana pelo portal mas omite a exceção por laudo de saúde" |
 
-**Por que o F1 errou?** (ex.: resposta correta e completa mais longa → precisão baixa; paráfrase com outras palavras;
-número trocado com as mesmas palavras; recusa com outras palavras)
+**Por que o F1 errou?** A resposta é um **prefixo literal** da referência: todos os tokens dela estão na referência
+(P = 1,0), e falta só a segunda oração ("depois disso, só por motivo de saúde comprovado por laudo"), que custa recall
+(0,643). O F1 média precisão e recall e não sabe que a parte que falta é uma **condição normativa**: um aluno que
+leia essa resposta conclui que depois da 8ª semana não há saída, o que é falso. A resposta tem 18 tokens, todos na
+referência, que tem 28; para o F1, os 10 tokens da exceção pesam o mesmo que quaisquer outros 10.
 
-**Evidência que sustenta a avaliação humana:** (trecho da fonte, citação da resposta, regra da rubrica aplicada)
+**Evidência que sustenta a avaliação humana:** o trecho recuperado e citado (DOC-TRANC#2) contém a exceção: "Após
+esse prazo, o pedido só é aceito por motivo de saúde comprovado por laudo." A resposta não a menciona. Pela rubrica,
+"parcial ou erro menor (falta uma condição da referência)" vale correção = 1, o que impede a aprovação. Não há falha
+crítica: o que a resposta afirma está certo, só está incompleto.
 
-**O que isso diz sobre Q2:**
+**O mesmo padrão em CT04/A (F1 0,706) e CT05/A (F1 0,833).** Em CT05/A a abstenção está correta, mas a resposta não
+orienta o discente a procurar a coordenação. R1 deu relevância 1 ("recusa sem orientar"), e o F1 continua alto porque
+o resto da frase coincide com a referência.
 
-## Observações factuais da execução (antes das notas humanas)
+**O que isso diz sobre Q2:** o F1 concordou com as pessoas em 9/12 decisões, mas **errou sempre para o mesmo lado**:
+aprovou respostas incompletas cujas palavras coincidem com a referência. Ele separa bem "fala do assunto certo" de
+"fala de outra coisa", e não separa "completa" de "incompleta" quando a parte omitida é curta. Por isso o F1 sozinho
+não serve para decidir a troca de versão; no critério pré-registrado ele não entra na decisão.
+
+## Caso-limite: o limiar τ decide CT01/B e CT06/A
+
+CT01/B e CT06/A têm o **mesmo texto** ("A média mínima para aprovação por média é 7,0 (sete).") e F1 = 0,485, logo
+abaixo de τ = 0,5. Aqui o automático e o humano concordam (os dois reprovam, R1 com C1: "omite os 75%"), mas por
+pouco: com τ = 0,45 o sinal automático aprovaria essas respostas e a concordância cairia para 7/12. Uma concordância
+de 9/12 depende de onde τ foi fixado.
+
+## Observações factuais da execução (registradas antes das notas humanas)
 
 Registradas a partir das saídas e do F1; **não são avaliação humana** e não antecipam as notas de R1/R2.
 

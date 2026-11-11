@@ -166,6 +166,9 @@ def main():
     res["concordancia_IA_humano"] = ({"iguais": sum(l["IA_adicional_aprova"] == l["aprovacao_humana_final"] for l in pares_ia),
                                       "denominador": len(pares_ia)} if pares_ia else None)
     res["decisao"], res["motivo_decisao"] = decidir(res)
+    if res["decisao"] != "pendente" and res["concordancia_R1_R2"] is None:
+        res["decisao"] += " (provisória)"
+        res["motivo_decisao"] += "; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões"
     if res["divergencias_sem_consenso"]:
         res["decisao"], res["motivo_decisao"] = "pendente", "divergência R1–R2 sem consenso registrado"
     res["divergencias_auto_humano"] = [f"{l['caso_id']}/{l['versao']}" for l in linhas if l["concorda_auto_humano"] == "não"]

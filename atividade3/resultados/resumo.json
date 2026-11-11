@@ -5,33 +5,43 @@
       "f1_medio": 0.701,
       "f1_mediano": 0.732,
       "auto_aprovados": 5,
-      "aprovados": null,
-      "aprovacao_humana": null,
-      "falhas_criticas": null,
+      "aprovados": 3,
+      "aprovacao_humana": 0.5,
+      "falhas_criticas": 0,
       "denominador": 6
     },
     "B": {
       "f1_medio": 0.728,
       "f1_mediano": 0.725,
       "auto_aprovados": 5,
-      "aprovados": null,
-      "aprovacao_humana": null,
-      "falhas_criticas": null,
+      "aprovados": 4,
+      "aprovacao_humana": 0.667,
+      "falhas_criticas": 0,
       "denominador": 6
     }
   },
   "status": {
     "saidas": 12,
     "saidas_com_erro": 0,
-    "anotacoes_R1": 0,
+    "anotacoes_R1": 12,
     "anotacoes_R2": 0,
     "consensos": 0
   },
-  "concordancia_auto_humano": null,
+  "concordancia_auto_humano": {
+    "iguais": 9,
+    "denominador": 12
+  },
   "concordancia_R1_R2": null,
   "divergencias_sem_consenso": [],
-  "concordancia_IA_humano": null,
-  "decisao": "pendente",
-  "motivo_decisao": "faltam decisões humanas finais",
-  "divergencias_auto_humano": []
+  "concordancia_IA_humano": {
+    "iguais": 8,
+    "denominador": 12
+  },
+  "decisao": "levar B à próxima etapa (provisória)",
+  "motivo_decisao": "aprovação humana B 4/6 > A 3/6, sem falha crítica; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões",
+  "divergencias_auto_humano": [
+    "CT04/A",
+    "CT04/B",
+    "CT05/A"
+  ]
 }

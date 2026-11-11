@@ -179,11 +179,15 @@
   <h2>Divergência automático × humano</h2>
   <p>Saídas em que o F1 e as pessoas discordam: <b>{{DIVERG}}</b></p>
   <div class="grid2">
-    <div class="caixa vermelha"><b>Limites do F1 já esperados</b><ul style="margin:4px 0">
-      <li style="font-size:13pt">Resposta correta e completa, porém mais longa → precisão baixa → F1 &lt; τ</li>
-      <li style="font-size:13pt">"7,0" × "6,0" (revogado) diferem em 1 token → F1 alto para um erro crítico</li>
-      <li style="font-size:13pt">Recusa correta com outras palavras → F1 baixo</li></ul></div>
-    <div class="caixa"><b>Caso analisado</b> (a equipe preenche com a evidência)<br>pergunta · referência · resposta · P/R/F1 · notas e trecho da fonte que sustenta o julgamento.<br><br><i>docs/analise_divergencia.md</i></div>
+    <div class="caixa vermelha"><b>O F1 errou sempre para o mesmo lado</b><ul style="margin:4px 0">
+      <li style="font-size:13pt">As 3 divergências são F1 aprovando e humano reprovando: respostas <b>incompletas</b> com as mesmas palavras da referência</li>
+      <li style="font-size:13pt">CT05/A: abstenção certa, mas sem orientar a procurar a coordenação (R1: relevância 1), com F1 0,833</li>
+      <li style="font-size:13pt">Caso-limite: CT01/B e CT06/A têm F1 0,485, logo abaixo de τ. Com τ = 0,45, a concordância cairia de 9/12 para 7/12</li></ul></div>
+    <div class="caixa"><b>Caso analisado: CT04 / B</b><br>
+      <i>"O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo."</i><br>
+      <b>F1 0,783</b> (P = 1,0; R = 0,643) → <b>aprova</b><br>
+      <b>R1: C1 R2 S2</b> → <b>reprova</b>: omite "depois disso, só por motivo de saúde comprovado por laudo", que está no trecho citado (DOC-TRANC#2).<br>
+      A resposta é um prefixo literal da referência, então a condição omitida pesa como quaisquer 10 palavras.</div>
   </div>
   <div class="rodape"><span>Parte E</span><span>atividade3/docs/analise_divergencia.md</span></div>
 </section>

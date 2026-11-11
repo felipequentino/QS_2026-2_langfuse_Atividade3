@@ -156,7 +156,7 @@ independente, em CT01 e CT05 × A/B (16 anotações).
 
 ### Resultados consolidados
 
-Gerado por `python -m atividade3.scripts.consolidar`. Estado: **12/12 saídas** (0 com erro), **0/12 notas R1**, **0/4 notas R2**, 0 consenso(s). τ = 0.5.
+Gerado por `python -m atividade3.scripts.consolidar`. Estado: **12/12 saídas** (0 com erro), **12/12 notas R1**, **0/4 notas R2**, 0 consenso(s). τ = 0.5.
 
 > **Execução/avaliação incompleta.** Campos sem dado aparecem como *pendente*; nenhum número foi estimado ou inventado.
 
@@ -164,18 +164,18 @@ Gerado por `python -m atividade3.scripts.consolidar`. Estado: **12/12 saídas** 
 
 | Caso | Versão | F1 | Sinal auto | Notas R1 | Notas R2 | Consenso | Decisão humana final | Auto = humano? | Justificativa |
 |---|---|---|---|---|---|---|---|---|---|
-| CT01 | A | 0.615 | aprova | pendente | pendente | — | pendente | pendente | — |
-| CT01 | B | 0.485 | reprova | pendente | pendente | — | pendente | pendente | — |
-| CT02 | A | 0.808 | aprova | pendente | — | — | pendente | pendente | — |
-| CT02 | B | 0.816 | aprova | pendente | — | — | pendente | pendente | — |
-| CT03 | A | 0.757 | aprova | pendente | — | — | pendente | pendente | — |
-| CT03 | B | 0.667 | aprova | pendente | — | — | pendente | pendente | — |
-| CT04 | A | 0.706 | aprova | pendente | — | — | pendente | pendente | — |
-| CT04 | B | 0.783 | aprova | pendente | — | — | pendente | pendente | — |
-| CT05 | A | 0.833 | aprova | pendente | pendente | — | pendente | pendente | — |
-| CT05 | B | 0.950 | aprova | pendente | pendente | — | pendente | pendente | — |
-| CT06 | A | 0.485 | reprova | pendente | — | — | pendente | pendente | — |
-| CT06 | B | 0.667 | aprova | pendente | — | — | pendente | pendente | — |
+| CT01 | A | 0.615 | aprova | C2 R2 S2 FC0 | pendente | — | sim (R1) | sim | 7,0 e frequência de 75% conforme Art. 2º com citação cobrindo ambas |
+| CT01 | B | 0.485 | reprova | C1 R2 S2 FC0 | pendente | — | não (R1) | sim | Cita o Art. 2º com 7,0 correto mas omite a frequência mínima de 75% |
+| CT02 | A | 0.808 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 5 dias úteis na coordenação conforme Art. 5º |
+| CT02 | B | 0.816 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 5 dias úteis na coordenação conforme Art. 5º sem omissões |
+| CT03 | A | 0.757 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 3 livros simultâneos e 7 dias corridos conforme DOC-BIBLIO |
+| CT03 | B | 0.667 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 3 livros e 7 dias corridos conforme DOC-BIBLIO |
+| CT04 | A | 0.706 | aprova | C1 R2 S2 FC0 | — | — | não (R1) | não | Informa o prazo da 8ª semana pelo portal mas omite que depois só por laudo de saúde |
+| CT04 | B | 0.783 | aprova | C1 R2 S2 FC0 | — | — | não (R1) | não | Informa o prazo da 8ª semana pelo portal mas omite a exceção por laudo de saúde |
+| CT05 | A | 0.833 | aprova | C2 R1 S2 FC0 | pendente | — | não (R1) | não | Abstenção correta sem inventar valor mas recusa sem orientar a coordenação |
+| CT05 | B | 0.950 | aprova | C2 R2 S2 FC0 | pendente | — | sim (R1) | sim | Abstenção correta sem inventar valor e orienta procurar a coordenação |
+| CT06 | A | 0.485 | reprova | C1 R2 S2 FC0 | — | — | não (R1) | sim | Cita 7,0 correto mas omite os 75% de frequência do Art. 2º |
+| CT06 | B | 0.667 | aprova | C2 R2 S2 FC0 | — | — | sim (R1) | sim | 7,0 e 75% de frequência conforme Art. 2º |
 
 Notas: C = correção, R = relevância, S = suporte (0–2), FC = falha crítica (0/1). Aprovação humana = C2 R2 S2 e FC0.
 
@@ -186,30 +186,31 @@ Notas: C = correção, R = relevância, S = suporte (0–2), FC = falha crítica
 | F1 médio | 0.701 | 0.728 |
 | F1 mediano | 0.732 | 0.725 |
 | Sinal automático aprova (F1 ≥ τ) | 5/6 | 5/6 |
-| **Aprovação humana** | pendente | pendente |
-| Falhas críticas | pendente | pendente |
+| **Aprovação humana** | 3/6 | 4/6 |
+| Falhas críticas | 0/6 | 0/6 |
 
 #### Concordâncias
 
-- **Auto–humano** (sinal F1 ≥ τ × decisão humana final): pendente.
+- **Auto–humano** (sinal F1 ≥ τ × decisão humana final): 9/12.
 - **R1–R2** (decisão aprovado/reprovado, só nas 4 saídas revisadas, antes do consenso): pendente.
+- *Avaliação adicional por LLM (não humana, não entra na decisão)* × decisão humana: 8/12.
 
 ##### Saídas revisadas por R2
 
 | Caso | Versão | R1 | R2 | Consenso |
 |---|---|---|---|---|
-| CT01 | A | pendente | pendente | — |
-| CT01 | B | pendente | pendente | — |
-| CT05 | A | pendente | pendente | — |
-| CT05 | B | pendente | pendente | — |
+| CT01 | A | C2 R2 S2 FC0 | pendente | — |
+| CT01 | B | C1 R2 S2 FC0 | pendente | — |
+| CT05 | A | C2 R1 S2 FC0 | pendente | — |
+| CT05 | B | C2 R2 S2 FC0 | pendente | — |
 
 #### Divergências automático × humano
 
-Pendente (faltam saídas ou decisões humanas).
+Saídas em que o sinal automático e a decisão humana discordam: CT04/A, CT04/B, CT05/A. A análise qualitativa está em `docs/analise_divergencia.md`.
 
 #### Decisão experimental (critério pré-registrado)
 
-**pendente** — faltam decisões humanas finais. Não é autorização para produção.
+**levar B à próxima etapa (provisória)** — aprovação humana B 4/6 > A 3/6, sem falha crítica; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões. Não é autorização para produção.
 
 ![Gráfico](../resultados/grafico.png)
 
@@ -219,29 +220,49 @@ Pendente (faltam saídas ou decisões humanas).
 
 ### Análise de divergência automático × humano (Parte E)
 
-> **A preencher pela equipe depois de `consolidar.py`.** Escolha ao menos uma saída da lista "Divergências
-> automático × humano" em `resultados/resultados.md`. Se não houver nenhuma, declare isso e discuta um caso-limite
-> real (ex.: a saída com F1 mais perto de τ). Não invente discordância.
+Divergências automático × humano nas 12 decisões (concordância 9/12): **CT04/A, CT04/B e CT05/A**. Nas três o
+F1 aprova (≥ 0,5) e a decisão humana (R1) reprova. Não houve o caso inverso (F1 reprova e o humano aprova): CT01/B e
+CT06/A ficaram abaixo de τ e também foram reprovados por R1.
 
-#### Saída escolhida: `<CTxx / versão>`
+#### Saída escolhida: CT04 / versão B
 
 | Campo | Valor |
 |---|---|
-| Pergunta | |
-| Referência | |
-| Resposta entregue | |
-| F1 (P, R) | |
-| Sinal automático | |
-| Decisão humana final (notas e origem) | |
+| Pergunta | Até quando posso solicitar o trancamento total da matrícula? |
+| Referência | O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo; depois disso, só por motivo de saúde comprovado por laudo. |
+| Resposta entregue | O trancamento total deve ser solicitado pelo portal acadêmico até o fim da 8ª semana do semestre letivo. |
+| F1 (P, R) | **0,783** (P = 1,000; R = 0,643) |
+| Sinal automático | aprova (0,783 ≥ 0,5): o maior F1 entre as respostas que o humano reprovou |
+| Decisão humana final (notas e origem) | **reprova**: C1 R2 S2, FC0 (R1). Justificativa de R1: "Informa o prazo da 8ª semana pelo portal mas omite a exceção por laudo de saúde" |
 
-**Por que o F1 errou?** (ex.: resposta correta e completa mais longa → precisão baixa; paráfrase com outras palavras;
-número trocado com as mesmas palavras; recusa com outras palavras)
+**Por que o F1 errou?** A resposta é um **prefixo literal** da referência: todos os tokens dela estão na referência
+(P = 1,0), e falta só a segunda oração ("depois disso, só por motivo de saúde comprovado por laudo"), que custa recall
+(0,643). O F1 média precisão e recall e não sabe que a parte que falta é uma **condição normativa**: um aluno que
+leia essa resposta conclui que depois da 8ª semana não há saída, o que é falso. A resposta tem 18 tokens, todos na
+referência, que tem 28; para o F1, os 10 tokens da exceção pesam o mesmo que quaisquer outros 10.
 
-**Evidência que sustenta a avaliação humana:** (trecho da fonte, citação da resposta, regra da rubrica aplicada)
+**Evidência que sustenta a avaliação humana:** o trecho recuperado e citado (DOC-TRANC#2) contém a exceção: "Após
+esse prazo, o pedido só é aceito por motivo de saúde comprovado por laudo." A resposta não a menciona. Pela rubrica,
+"parcial ou erro menor (falta uma condição da referência)" vale correção = 1, o que impede a aprovação. Não há falha
+crítica: o que a resposta afirma está certo, só está incompleto.
 
-**O que isso diz sobre Q2:**
+**O mesmo padrão em CT04/A (F1 0,706) e CT05/A (F1 0,833).** Em CT05/A a abstenção está correta, mas a resposta não
+orienta o discente a procurar a coordenação. R1 deu relevância 1 ("recusa sem orientar"), e o F1 continua alto porque
+o resto da frase coincide com a referência.
 
-#### Observações factuais da execução (antes das notas humanas)
+**O que isso diz sobre Q2:** o F1 concordou com as pessoas em 9/12 decisões, mas **errou sempre para o mesmo lado**:
+aprovou respostas incompletas cujas palavras coincidem com a referência. Ele separa bem "fala do assunto certo" de
+"fala de outra coisa", e não separa "completa" de "incompleta" quando a parte omitida é curta. Por isso o F1 sozinho
+não serve para decidir a troca de versão; no critério pré-registrado ele não entra na decisão.
+
+#### Caso-limite: o limiar τ decide CT01/B e CT06/A
+
+CT01/B e CT06/A têm o **mesmo texto** ("A média mínima para aprovação por média é 7,0 (sete).") e F1 = 0,485, logo
+abaixo de τ = 0,5. Aqui o automático e o humano concordam (os dois reprovam, R1 com C1: "omite os 75%"), mas por
+pouco: com τ = 0,45 o sinal automático aprovaria essas respostas e a concordância cairia para 7/12. Uma concordância
+de 9/12 depende de onde τ foi fixado.
+
+#### Observações factuais da execução (registradas antes das notas humanas)
 
 Registradas a partir das saídas e do F1; **não são avaliação humana** e não antecipam as notas de R1/R2.
 
@@ -340,9 +361,9 @@ guardada, e não presumida.
 
 ## 7. Decisão e questões de análise
 
-**Decisão (critério pré-registrado):** **pendente** — faltam decisões humanas finais.
+**Decisão (critério pré-registrado):** **levar B à próxima etapa (provisória)** — aprovação humana B 4/6 > A 3/6, sem falha crítica; R2 ainda não avaliou CT01/CT05, e um consenso pode alterar essas 4 decisões.
 
-- **B melhorou a qualidade humana ou só a métrica?** pendente (faltam saídas ou decisões humanas).
+- **B melhorou a qualidade humana ou só a métrica?** Aprovação humana 3/6 → 4/6 (melhorou); F1 médio 0.701 → 0.728 (subiu). Falhas críticas: A 0, B 0.
 - **Qual saída mostra melhor o limite do F1?** Ver a seção 5; a calibração com saídas da AV2 já mostrava respostas
   corretas abaixo de τ.
 - **É possível reconstruir uma saída pelo manifesto?** Sim para código, prompt (sha256), corpus, casos, parâmetros e
