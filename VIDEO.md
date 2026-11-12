@@ -1,7 +1,6 @@
 # Vídeo da Atividade 3
 
-**Link do vídeo:** _A PREENCHER PELA EQUIPE APÓS A GRAVAÇÃO_ (no Classroom, enviar o link, não o arquivo; copiar
-também para `atividade3/links.yaml` → `video_url`).
+**Link do vídeo:** https://drive.google.com/file/d/1IvWlBw7JIJbwjA0lnVXGdxLTQMGIAhNh/view?usp=sharing
 
 **Roteiro (10–12 min, todos aparecem):** recorte e fluxo (Renner) → GQM e τ (João Felipe) → casos (Bruno) →
 mudança A/B (Gabriel) → execução ao vivo de `python -m atividade3.scripts.executar` e manifesto (João Victor) →
